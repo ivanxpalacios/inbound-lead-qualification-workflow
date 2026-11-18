@@ -36,7 +36,7 @@ When proposing a breakdown, give for each ticket: title, behaviour, new concept,
   Then wait for the engineer to say continue.
 - **One commit per step**, with a message that describes that step only.
 - **Answer questions before moving on.** If the engineer asks why or how, explain it before writing more code. Never batch unexplained changes.
-- **If the ticket turns out bigger than the limits above, stop.** Propose splitting it instead of pushing through.
+- **If the ticket turns out bigger than the limits above, bring it up to the developer, explain why and ask for approval to continue or suggest alternatives.**
 - **Readable over clever.** Prefer small named functions, explicit types and straightforward control flow. Avoid abstractions the current ticket doesn't need yet.
 
 ## Agent skills

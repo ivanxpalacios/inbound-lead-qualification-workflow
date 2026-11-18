@@ -1,0 +1,4 @@
+docs/aprendizaje/
+node_modules/
+.wrangler/
+.dev.vars

@@ -17,6 +17,14 @@ _Avoid_: Agent, salesperson, SDR, user
 The raw message a person sends through a submission source at a given moment, stored exactly as received and never modified. It is recorded before any processing, so a failure later never loses it, and it can be reprocessed. If the same person writes twice, that is two submissions.
 _Avoid_: Lead, form, entry, payload
 
+**Rejected Submission**:
+A submission from a genuine submission source that lacks what a lead needs, such as a contact email or a message. It is kept as received but produces no lead. The submission source is set up so this should rarely happen.
+_Avoid_: Invalid lead, spam, bad submission
+
+**Duplicate Delivery**:
+A submission arriving again from its submission source after it was already received. It is the same submission, not a second one, and is discarded on arrival. Two submissions with identical content from the same contact are not a duplicate delivery.
+_Avoid_: Duplicate submission, duplicate lead
+
 **Lead**:
 The work item the system creates from a submission. It links the contact and, when the submission has a corporate domain, the company (either may be created from that same submission) and carries everything derived from it: enrichment, scores, tier, reasons and generated draft. It is what reps review and work, in the interface and in code alike. Today each submission produces exactly one lead.
 _Avoid_: Opportunity, ticket, request
@@ -80,7 +88,7 @@ A human-readable explanation of one scoring rule applied to a lead, so the rep u
 _Avoid_: Explanation, log, rationale
 
 **Repeat Contact**:
-A contact who has sent submissions before, and therefore has previous leads. It is not part of intent. It is not a duplicate submission, which is the same message delivered twice and is discarded on arrival.
+A contact who has sent submissions before, and therefore has previous leads. It is not part of intent. It is not a duplicate delivery.
 _Avoid_: Duplicate, repeated lead
 
 ## Review

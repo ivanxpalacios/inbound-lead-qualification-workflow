@@ -1,4 +1,4 @@
-# INIT Document
+# Design Document
 
 ## 1. Scope
 

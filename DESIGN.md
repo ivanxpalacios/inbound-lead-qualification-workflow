@@ -117,3 +117,17 @@ Extraction and Generated Draft quality are measured with offline evaluation harn
   - Initial size for Generated Drafts: about 60 dev + 25 hold-out.
   - Initial size for extraction: about 100 dev + 40 hold-out.
 - **Recording:** every run records the prompt, model, rubric and set versions.
+
+## 7. Phases
+
+v1 is built in this order. Each phase is one spec, and each ends with something the engineer can observe.
+
+1. **Intake:** a signed Tally webhook stores one Submission in D1, discards duplicate deliveries and answers 200. New: Workers, D1.
+2. **Lead in HubSpot:** a stored Submission is queued and a Workflow creates a native Lead linked to its Contact and Company, found in D1 or HubSpot first. Includes the spike on sorting the Leads view by a custom property. New: Queues, Workflows, HubSpot API.
+3. **Enrichment:** the Company is enriched through Apollo, with the per-Company cache, the fake provider for development, Trust and Unverified Company. New: first provider interface.
+4. **Extraction:** an LLM fills the extraction schema from the message, including the language. Starts by settling the extraction schema and the Intent rules. New: LLM interface, structured output.
+5. **Scoring:** Fit, Intent, Bands, Tier, Unknown Fit, Reasons and the Priority sort property are computed and projected to HubSpot. New: Tenant configuration file.
+6. **Generated Draft:** an LLM writes the Generated Draft with its provenance, and it is projected to the Lead. New: versioned prompts and tone guide.
+7. **Review:** the Rep sees the app card and records a Dismissal through a signed call to the Worker. New: HubSpot app card.
+8. **Reprocessing and failures:** the admin endpoint reprocesses a Submission, and a Lead that cannot be processed appears with Processing Failed.
+9. **Evaluation:** Python harnesses with Dev and Hold-out Sets for extraction and Generated Drafts, hard checks and the Judge. Afterwards, decide whether the call to action changes per Tier. New: Python, evaluation.

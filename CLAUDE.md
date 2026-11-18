@@ -6,6 +6,11 @@ Project scope and product decisions: see DESIGN.md. Domain vocabulary: GLOSSARY.
 
 The engineer reviews every line that lands in this repo. Work must be sized and paced for a human reviewer, not for an agent's context window. These rules override the default sizing in `to-spec`, `to-tickets` and `implement`.
 
+### Spec sizing (`to-spec`)
+
+- **One phase per spec.** A spec covers exactly one phase from the Phases section of DESIGN.md, never the whole v1. Name the phase in the spec's title.
+- **Open stays open.** Decisions DESIGN.md marks as open or deferred stay out of the spec, unless the phase being specified is the one meant to settle them; then they are settled with the engineer before the spec is written.
+
 ### Ticket sizing (`to-tickets`, `to-spec`)
 
 Each ticket (sub-issue) must satisfy all of these. If it doesn't, split it.

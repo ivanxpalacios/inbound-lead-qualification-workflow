@@ -5,10 +5,13 @@
   "scripts": {
     "dev": "wrangler dev",
     "types": "wrangler types",
-    "typecheck": "wrangler types --check && tsc --noEmit"
+    "typecheck": "wrangler types --check && tsc --noEmit",
+    "test": "vitest run"
   },
   "devDependencies": {
+    "@cloudflare/vitest-plugin": "^1.8.5",
     "typescript": "^7.0.2",
+    "vitest": "^5.1.1",
     "wrangler": "^4.165.0"
   }
 }

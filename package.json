@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "wrangler dev",
     "types": "wrangler types",
-    "typecheck": "wrangler types --check && tsc --noEmit",
+    "typecheck": "wrangler types --check && tsc --noEmit && tsc --noEmit -p test",
     "test": "vitest run"
   },
   "devDependencies": {

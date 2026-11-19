@@ -6,7 +6,9 @@
     "dev": "wrangler dev",
     "types": "wrangler types",
     "typecheck": "wrangler types --check && tsc --noEmit && tsc --noEmit -p test && tsc --noEmit -p tsconfig.node.json",
-    "test": "vitest run"
+    "test": "vitest run",
+    "check": "biome check",
+    "fix": "biome check --write"
   },
   "devDependencies": {
     "@biomejs/biome": "2.6.8",

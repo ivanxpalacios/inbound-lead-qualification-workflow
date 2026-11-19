@@ -5,10 +5,22 @@
   "scripts": {
     "dev": "wrangler dev",
     "types": "wrangler types",
-    "typecheck": "wrangler types --check && tsc --noEmit"
+    "typecheck": "wrangler types --check && tsc --noEmit && tsc --noEmit -p test && tsc --noEmit -p tsconfig.node.json",
+    "test": "vitest run"
   },
   "devDependencies": {
+    "@cloudflare/vitest-plugin": "^1.8.5",
+    "@types/node": "^26.6.6",
     "typescript": "^7.0.2",
+    "vitest": "^5.1.1",
     "wrangler": "^4.165.0"
+  },
+  "engines": {
+    "node": ">=26.13.0"
+  },
+  "allowScripts": {
+    "workerd@1.20261118.1": true,
+    "esbuild@0.28.2": true,
+    "fsevents": false
   }
 }

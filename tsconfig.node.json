@@ -1,0 +1,21 @@
+// Type-checks the tooling config files that run in Node, not in workerd
+// (today only vitest.config.ts, which Vitest loads in Node before starting
+// the Workers runtime).
+//
+// It deliberately does not extend ./tsconfig.json: that one carries the
+// Workers runtime types, which would hide Node globals such as `process`
+// and wrongly allow Workers-only globals in a file that never runs there.
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "lib": ["esnext"],
+    "types": ["node"],
+    "strict": true,
+    "noEmit": true,
+    "isolatedModules": true,
+    "skipLibCheck": true
+  },
+  "include": ["vitest.config.ts"]
+}
